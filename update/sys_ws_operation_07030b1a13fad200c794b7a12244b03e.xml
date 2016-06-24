@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl/>
+        <http_method>POST</http_method>
+        <name>attachKnowledgeToTask</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+	var taskID = String(request.queryParams.taskid);
+	var kbID = String(request.queryParams.kbid);
+	
+	var oneSearchHelper = new sn_onesearch.oneSearchAjax_ClientHelpersCore();
+	return oneSearchHelper.attachKnowledgeToTaskServer(taskID, kbID);
+})(request, response);]]></operation_script>
+        <operation_uri>/api/sn_onesearch/onesearch/attachknowledgetotask</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/attachknowledgetotask</relative_path>
+        <request_example/>
+        <requires_acl_authorization>false</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>ben.hollifield@snc</sys_created_by>
+        <sys_created_on>2016-04-17 20:31:33</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>07030b1a13fad200c794b7a12244b03e</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>attachKnowledgeToTask</sys_name>
+        <sys_package display_value="OneSearch" source="sn_onesearch">d461206f0f203100c8badf2be1050eb6</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="OneSearch">d461206f0f203100c8badf2be1050eb6</sys_scope>
+        <sys_update_name>sys_ws_operation_07030b1a13fad200c794b7a12244b03e</sys_update_name>
+        <sys_updated_by>ben.hollifield@snc</sys_updated_by>
+        <sys_updated_on>2016-04-17 20:31:57</sys_updated_on>
+        <web_service_definition display_value="OneSearch">f8d5be1613fad200c794b7a12244b0a2</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>
